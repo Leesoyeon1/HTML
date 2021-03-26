@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+
+<body>
+    <table border="1" style="width: 50%">
+        <form action="get.jsp" method="get">
+            <tr>
+                <td>이름</td>
+                <td><input type="text" name="name"></td>
+            </tr>
+            <tr>
+                <td>성별</td>
+                <td><input type="radio" name="sex" value="male" checked>남자
+                    <input type="radio" name="sex" value="female">여자
+                </td>
+            </tr>
+            <tr>
+                <td>학년</td>
+                <td><input type="radio" name="year" value="1" checked>1학년
+                    <input type="radio" name="year" value="2">2학년
+                    <input type="radio" name="year" value="3">3학년
+                    <input type="radio" name="year" value="4">4학년
+                </td>
+            </tr>
+            <tr>
+                <td>관심</td>
+                <td><input type="checkbox" name="subject" value="HTML5" checked>HTML5<br>
+                    <input type="checkbox" name="subject" value="CSS3">CSS3<br>
+                    <input type="checkbox" name="subject" value="JavaScript">JavaScript<br>
+                    <input type="checkbox" name="subject" value="Jquery">Jquery
+                </td>
+            <tr>
+                <td>취미</td>
+                <td><select name="subjects" size="4" multiple>
+                        <option value="1" selected>독서</option>
+                        <option value="2" selected>운동</option>
+                        <option value="3" selected>요리</option>
+                        <option value="4" selected>낮잠</option>
+                </td>
+            </tr>
+            </select>
+            <p></p>
+        <input type="submit" value="전송">
+        <input type="reset" value="다시작성">
+        </form>
+    </table>
+
+</body>
+
+</html>
