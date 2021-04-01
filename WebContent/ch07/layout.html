@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+        * {
+            border: 1px solid gray;
+            text-align: center;
+            box-sizing: border-box;
+            border-radius: 3px;
+        }
+
+        header.container {
+            background-color: bisque;
+            height: 10vh;
+        }
+
+        nav,
+        section,
+        aside {
+            background-color: chartreuse;
+            margin: 1% 1%;
+        }
+
+        nav {
+            width: 23%;
+            float: left;
+            height: 50vh;
+        }
+
+        section {
+            width: 50%;
+            float: left;
+            height: 50vh;
+
+        }
+
+        section>header,
+        section>article,
+        section>footer {
+            background-color: cornflowerblue (150, 206, 49);
+            margin-left: 1%;
+            margin-right: 1%;
+        }
+
+        section>header {
+
+            margin-top: 5%;
+            height: 30%;
+        }
+
+        section>footer {
+            margin-top: 5%;
+            height: 15%;
+        }
+
+        aside {
+            width: 23%;
+            float: left;
+            height: 50vh;
+        }
+
+        footer.container {
+            background-color: coral (235, 145, 36);
+            float: left;
+            height: 30px;
+            width: 100%;
+            margin: 1% 1%;
+
+        }
+        ul>li{
+            display: inline;
+            border-width: 0px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <header class='container'>
+        &lt;header&gt;
+    </header>
+    <nav>
+        &lt;nav&gt;
+    </nav>
+    <section>
+        &lt;section&gt;
+        <header class='item'>
+            &lt;header&gt;           
+        </header>
+        <article>
+            &lt;article&gt;
+        </article>
+        <footer class='item'>
+            &lt;footer&gt;
+        </footer>
+    </section>
+    <aside>
+        &lt;aside&gt;
+    </aside>
+    <footer class='container'>
+        &lt;footer&gt;
+    </footer>
+    
+</body>
+
+</html>

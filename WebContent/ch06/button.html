@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    
+    <div>
+        <p text="SeongYong Hong">텍스트</p>
+        <p text="SeongYong Hong">텍스트</p>
+        <p text="img/pic.png">텍스트6</p>
+        <p text="SeongYong Hong">텍스트7</p>
+    </div>
+    <button onclick="del_func()">Click</button>
+    <script>
+        function del_func(){
+            let text = document.querySelectorAll('p[text~=cc]');
+            for(let i = 0; i < text.length; i++){
+                text[i].remove();
+            }
+        }
+    </script>
+</body>
+</html>
