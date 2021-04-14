@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>jquery/event.html</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='../jquery-3.6.0.min.js/jquery.min.js'></script>
+    <script>
+        $.ajax({
+            url: '../MOCK_DATA.json1',
+            type: 'get',
+            data: 'name=hong&age=20',
+            dataType: 'json',
+            success: function (data) {
+                let arry = data;
+                let ulTag = $('<ul />');
+                $(arry).each(function (idx, obj) {
+                    console.log(idx, obj);
+                    // ulTag.append($('<li />').html('<a href="#">'+ obj.first_name+ '</a>'));
+                    ulTag.append( //
+                        $('<li />').append( //
+                            $('<a />').html(obj.first_name).attr('href', 'get.jsp?name=' + obj
+                                .first_name)
+                        )
+                    );
+                });
+                $('body').append(ulTag);
+            },
+            error: function (reject) {
+                console.error(reject.status, reject.statusText);
+            }
+        })
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

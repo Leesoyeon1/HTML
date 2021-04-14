@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+ 
+    
+</head>
+<body>
+    
+    <button onclick='turn_on()'>Turn on</button>
+    <img id='img1' src='http://www.w3schools.com/js/pic_bulboff.gif'>
+    <button onclick='turn_off()'>Turn off</button>
+    <script src='variable.js'></script>
+
+    <script>
+        function turn_on(){
+            var bulbon = 10;
+            bulbon = 'hello';
+            bulbon = document.getElementById('img1');
+            bulbon.setAttribute('class','img');
+            bulbon.setAttribute('src','http://www.w3schools.com/js/pic_bulbon.gif')
+            console.log(bulbon);
+        }
+        function turn_off(){
+            bulboff = document.getElementById('img1');
+            bulboff.setAttribute('src','http://www.w3schools.com/js/pic_bulboff.gif')
+            
+        }
+    </script>
+</body>
+</html>

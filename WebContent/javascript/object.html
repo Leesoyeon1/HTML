@@ -1,0 +1,54 @@
+!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+
+<body>
+    <div id="show"></div>
+    <ul id="list"></ul>
+
+    <p></p>
+    <script>
+        let elem = document.getElementById('list');
+        for (fruit of fruits) {
+            let liTag = document.createElement('li');
+            let text = document.createTextNode(fruit);
+            liTag.appendChild(text);
+            elem.appendChild(liTag);
+        }
+        let m1 = {
+            name: 'Hong',
+            score: 80
+        }
+        let m2 = {
+            name: 'Hwang',
+            score: 90
+        }
+        let m3 = {
+            name: 'Park',
+            score: 70
+        }
+        let members = [m1, m2, m3];
+        for (memeber of members) {
+            for(let field in memeber){
+                console.log(field, member[field]);
+            letliTag = documnt.createElement('li');
+            let text = document.createTextNode(member[field]);
+            liTag.appendChild(text);
+            menList.appendChild(liTag);
+            }
+
+        }
+    </script>
+
+</body>
+<body>
+    <div id=""></div>
+</body>

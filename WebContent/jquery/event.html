@@ -1,0 +1,126 @@
+ <!DOCTYPE html>
+ <html>
+
+ <head>
+     <meta charset='utf-8'>
+     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+     <title>jquery/event.html</title>
+     <meta name='viewport' content='width=device-width, initial-scale=1'>
+     <script src='http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <script>
+        console.log('1');
+         $.ajax({
+             url: 'MOCK_DATA.json',
+             success: function (result) {
+                 let objs = $(result).map(function (idx, obj) {
+                     let person = {};
+                     person.name = obj.first_name;
+                     person.email = obj.email;
+                     return person;
+                 }).filter(function (idx, obj) {
+                     return idx < 5;
+                 });
+                 console.log('objs');
+                 console.log('2');//제일 마지막에 실행됨.
+
+                 let tbl = $('<table />');
+                 tbl.attr('border','1');
+                 $(objs).each(function (idx, obj){
+                     let trTag = $('<tr />');
+                     trTag.mouseover (function (){
+                         $(this).css('background-color','yellow');
+                     });
+                     trTag.on({
+                         'mouseout' : function(){
+                             $(this).css ('background-color','');
+                         },
+                         'mouseover' : function(){
+                             $(this).css('background-color','yellow')
+                         },
+                         'click' : function(){
+                             window.alert($(this).children().eq(0).html());
+
+                         }
+                     });//{이벤트이름: 핸들러}
+                     let tdTag = $('<td />');
+                     let ips = $('<input />').attr('type','checkbox');
+                     tdTag.append(tdTag.append(ips));
+                     
+                     for (field in obj){
+                         let tdTag = $('<td />').html(obj[field]);
+                         trTag.append(tdTag);
+                     }
+                     tbl.append(trTag);
+                 });
+                 $('body').append(tbl);
+
+                 $('body').append($('<button />').append('삭제').click(function(){delChecked();
+                
+                }));
+
+             }
+
+
+         });
+         console.log('3');
+
+         function delChecked(){
+             console.log($(this));
+             $('td>input[type="checkbox"]').is(':checked')
+             .parentsUntil('table')//.remove();
+             .css('color','red')//checkbox에 있는 요소들을 다 선택하여 parentsUntil로 하위요소들을 불러온다.
+             .remove();
+         }
+
+     </script>
+     </script>
+ </head>
+
+ <body>
+     <button id="btn">클릭</button>
+     <button id="bton">click</button>
+     <button id="btnOn">클릭</button>
+     <script>
+         //jQuery
+         $('#btnOn').click(function(){
+             console.log('클릭되었습니다.');
+
+         });
+         $('#btnOn').mouseover(function(){
+             $(this).css('background-color','yellow');
+         })
+         //자바스크립트
+         let btn = document.getElementById('btn');
+         btn.onclick = function () {
+             alert('클릭버튼이 눌렸습니다!');
+         }
+         btn.onmouseover = function () {
+             this.style.backgroundColor = 'yellow';
+
+         }
+         btn.onmouseout = function () {
+             this.style.backgroundColor = '';
+
+
+         }
+         $('#buttonOn').on('click',function(){
+             console.log('클릭되었습니다.');
+         });
+         $('#butonOn').on({
+             'mouseover': function(){
+                 $(this).css('background-color', 'yellow');
+             },
+             'mouseout' : function(){
+                 $(this).css('backgrount-color','');
+             }
+
+         })
+         let bton = document.getElementById('bton');
+         bton.addEventListener('click', function () {
+
+         })
+     </script>
+
+ </body>
+
+ </html>

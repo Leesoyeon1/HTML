@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='javascript/class.js'></script>
+</head>
+<body>
+    <script>
+        var today = new Date();
+        var nowMonth = today.getMonth();
+        nowDate - today.getDate();
+        nowDay = today.getDay();
+        
+        document.write("<h1>오늘 날짜 정보</h1>");
+        document.write("현재 월: " + nowMonth,"<br>");
+        document.write("현재 일: " + nowDate,"<br>");
+        document.write("현재요일:" + nowDay,"<br>");
+
+       
+
+        function getTime() {
+            let show = document.getElementById('show');
+            let time = new Date();
+            let year = time.getFullYear();
+            let month = time.getMonth();
+            let date = time.getTime();
+            let hh = time.getHours();
+            let mm = time.getMinutes();
+            let ss = time.getSeconds();
+
+            show.innerHTML = year + '년' + (month+1) + '월' + date + '일'+ hh + ':' + mm + ':' + ss;
+
+            var today = newDate();
+            var noeYear =  today.getFullYear();
+
+            var theDate = new Date(nowYear,11,31);
+            var diffDate = theDate.getTime() - todat.getTime();
+
+            var result = Math.ceil(diffDate/(60*1000*60*24));
+            document.write("연말 D-day:"+result+"일 남았습니다.")
+        }
+    </script>
+    
+</body>
+</html>

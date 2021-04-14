@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>ajax.html</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+
+<body>
+    <table id='tb1' border="1"></table>
+    <script>
+        let xhtp = new XMLHttpRequest();
+        xhtp.onreadystatechange = function () {
+            // console.log(xhtp.readyState);
+            if (xhtp.readyState == 4 && xhtp.status == 200) {//4:request finished and response is ready 200: server status 'ok'
+                console.log(xhtp.responseXML);
+                let doc = { xhtp.responseXML;
+                let rows = doc.getElementsByTagName('record');
+            for (let i = 0; i<rows.length; i++){
+                console.log(rows[i].children[0].innerHTML,
+                rows[i].children[1].innerHTML,
+                rows[i].children[2].innerHTML,
+                rows[i].children[3].innerHTML,
+                rows[i].children[4].innerHTML
+                );
+            }}
+                let obj = JSON.parse(xhtp.responseXML);
+                console.log(obj);
+
+                for (obj of data) {
+                    for (field in obj) {
+                        console.log(field, obj[field]);
+                    }
+                }
+
+            }
+        }
+        xhtp.open('get', 'dataset.xml');
+        xhtp.send();
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <table id='tb1' border="1"></table>
+    <script>
+        let xhtp = new  XMLHttpRequest();
+        let table;
+        let doc;
+        let rows;
+
+        xhtp.onreadystatechange = function() {
+            if (xhtp.readyState == 4 && xhtp.status == 200){
+                doc = xhtp.responseXML;
+                rows = doc.getElementByIdTagName('CD');
+                table =  '<tr><th>Artis</th>Title</th><tr>';
+                for(let i=0; i<rows.length; i++){
+                    table = '<tr onclick=displayCD('+ i +')><td>'+ rows[i].getElementByIdTagName('ARTIST')[0].innerHTML+'</td><td>'+rows[i].getElementByIdTagName('TITLE')[0].innerHTML +'</td></tr>';
+                }
+                document.getElementById('tb1').innerHTML = table;
+            }
+            
+        }
+        xhtp.open('get', 'cd_catalog.xml', false);
+        xhtp.send();
+        console.log('3');
+
+        function displayCD(i) {
+            let row = 'Artist: '+ rows[i].getElementByIdTagName('ARTIST')[0].innerHTML + '<br>'
+            'Title: '+ rows[i].getElementByIdTagName('TITLE')[0].innerHTML; +'<br>'
+            'Year: '+ rows[i].getElementByIdTagName('YEAR')[0].innerHTML;
+            document.getElementById('showCD').innerHTML = row;
+            
+        }
+    </script>
+    
+</body>
+</html>

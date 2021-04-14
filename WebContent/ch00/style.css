@@ -1,0 +1,41 @@
+*{
+    text-align: center;
+    float: left;
+    color: black;
+}
+header{
+    position: static;
+    width: 400px;
+    height: 50px;
+    margin: 10px;
+    background-color: cyan;
+}
+nav{
+    position: static;
+    width: 400px;
+    height: 50px;
+    margin: 10px;
+    background-color: coral;
+
+}
+content{
+    position: static;
+    width: 400px;
+    height: 50px;
+    margin: 10px;
+    background-color: darkgoldenrod;
+}
+footer{
+    position: static;
+    width: 400px;
+    height: 50px;
+    margin: 10px;
+    background-color: darksalmon;
+}
+.sp1{
+    position: static;
+    background-color: darkseagreen;
+    width: 400px;
+    height: 50px;
+
+}

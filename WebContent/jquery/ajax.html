@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ajax.html</title>
+<script src="../jquery-3.6.0.min.js/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+		// let query = 'boardNo=1&title=test&content=test&writer=user1';
+			//리스트보여주기
+			$.ajax({
+				url : 'ajax.jsp',
+				dataType : "json",
+				success : function(result) {
+					console.log(result);
+					//테이블에 표로 데이터 보여주도록
+					let tb1 =$('<table/>');
+					let trTag;
+					for(data of result){
+						trTag = $('<tr />');
+						trTag.append(
+								$('<td />').html(data.boardNo),
+								$('<td />').html(data.title,
+								$('<td />').html(data.content),
+								$('<td />').html(data.writer),
+								$('<td />').html($('<button />').html('삭제').click(delData))
+						);
+								tb1.append(trTag);
+						
+					}
+					$('#show').append(tb1);
+				},
+				error: function(reject){
+					console.error(reject);
+				}
+			});
+								function delData(i){
+									
+								}
+	
+//입력자리
+		$('#frm').submit(function(event) {
+			event.preventDefault();
+
+			console.log($('#frm').serialize());
+			$.ajax({
+				url : $('#frm').attr('action'),
+				// data : {
+				// 	boardNo : $('input[name="boardNo"]').val(''),
+				// 	title : $('input[name="title"]').val(''),
+				// 	content : $('input[name="content"]').val(''),
+				// 	writer : $('input[name="writer"]').val('')
+				// },
+				data : $('#frm').serialize(),
+				success : function(data) {
+					let result = JSON.parse(data);//JSON=>Object
+					console.log(result);
+
+				}
+			});
+
+		});
+	});
+	
+
+
+</script>
+</head>
+<body>
+	<form action="ajax.jsp" id="frm" method="GET">
+		<div>
+			게시글 번호:<input type="text" name="boardNo">
+		</div>
+		<div>
+			제목:<input type="text" name="title">
+		</div>
+		<div>
+			내용:
+			<textarea name="content" cols="30" rows="10"></textarea>
+		</div>
+		<div>
+			작성자: <input type="text" name="writer">
+		</div>
+		<div>
+			<input type="submit" value="send">
+		</div>
+		<div>
+			<input type="reset" value="cancle">
+		</div>
+	</form>
+	<div id="show"></div>
+</body>
+</html>
